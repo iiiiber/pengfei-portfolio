@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鹏飞的个人主页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #f59e0b;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* 头像 */
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border: 4px solid white;
+        }
+        
+        /* 导航 */
+        nav {
+            background: var(--card-bg);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        /* 区块 */
+        section {
+            padding: 60px 0;
+        }
+        
+        section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        /* 关于我 */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        
+        .about-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .about-card h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .about-card p {
+            color: var(--text-muted);
+        }
+        
+        /* 副业项目 */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-content h3 {
+            color: var(--text);
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .project-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 15px;
+        }
+        
+        /* 公众号 */
+        .wechat-section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .wechat-placeholder {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            margin: 30px auto;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 3px dashed rgba(255,255,255,0.3);
+        }
+        
+        .wechat-placeholder span {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        .wechat-placeholder p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+        
+        /* 页脚 */
+        footer {
+            background: var(--card-bg);
+            padding: 30px 0;
+            text-align: center;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* 响应式 */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="avatar">🐾</div>
+            <h1>鹏飞</h1>
+            <p>互联网创业爱好者 | 副业探索者</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">关于我</a></li>
+                <li><a href="#projects">副业项目</a></li>
+                <li><a href="#wechat">微信公众号</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section id="about">
+        <div class="container">
+            <h2>关于我</h2>
+            <div class="about-content">
+                <div class="about-card">
+                    <h3>💼 工作</h3>
+                    <p>操作系统适配测试工程师，专注硬件/驱动/软件兼容性测试工作。热爱技术，关注互联网发展趋势，持续学习新技术。</p>
+                </div>
+                <div class="about-card">
+                    <h3>🌈 生活</h3>
+                    <p>热爱探索互联网新机会，业余时间研究各种轻创业项目。相信低成本、可执行的副业才是普通人最好的选择。</p>
+                </div>
+                <div class="about-card">
+                    <h3>🎯 目标</h3>
+                    <p>寻找并实践网上最新可执行的轻创业项目，实现副业收入多元化。</p>
+                </div>
+                <div class="about-card">
+                    <h3>📍 位置</h3>
+                    <p>长沙岳麓区 | 欢迎交流互联网创业心得</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="projects">
+        <div class="container">
+            <h2>副业项目</h2>
+            <div class="projects-grid">
+                <!-- 寄快递项目 -->
+                <div class="project-card">
+                    <div class="project-img" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">📦</div>
+                    <div class="project-content">
+                        <h3>寄快递项目</h3>
+                        <p>通过整合快递资源，提供优惠寄件服务。适合兼职操作，时间灵活，单单有收益。</p>
+                        <span class="tag">快递代下</span>
+                    </div>
+                </div>
+                
+                <!-- 旧衣回收项目 -->
+                <div class="project-card">
+                    <div class="project-img" style="background: linear-gradient(135deg, #10b981, #059669);">👕</div>
+                    <div class="project-content">
+                        <h3>旧衣回收项目</h3>
+                        <p>回收旧衣物进行环保处理再利用，单价高、操作简单，适合社区推广。</p>
+                        <span class="tag">环保回收</span>
+                    </div>
+                </div>
+                
+                <!-- 红包封面项目 -->
+                <div class="project-card">
+                    <div class="project-img" style="background: linear-gradient(135deg, #ef4444, #dc2626);">🧧</div>
+                    <div class="project-content">
+                        <h3>红包封面项目</h3>
+                        <p>微信红包封面定制，节日热点刚需，可设计可分销，利润率可观。</p>
+                        <span class="tag">创意定制</span>
+                    </div>
+                </div>
+                
+                <!-- 学法减分项目 -->
+                <div class="project-card">
+                    <div class="project-img" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">📚</div>
+                    <div class="project-content">
+                        <h3>学法减分项目</h3>
+                        <p>帮助车主通过学法减分政策抵扣违章积分，市场需求大，客单价高。</p>
+                        <span class="tag">驾照服务</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="wechat">
+        <div class="container">
+            <h2>微信公众号</h2>
+            <div class="wechat-section">
+                <p style="color: var(--text-muted);">扫码关注公众号，获取更多副业项目干货</p>
+                <div class="wechat-placeholder">
+                    <span>📱</span>
+                    <p>公众号二维码<br>预留位置</p>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">微信号：添加请备注"副业"</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2026 鹏飞的个人主页 | 互联网创业爱好者</p>
+            <p style="font-size: 0.9rem; margin-top: 10px;">让副业成为第二收入来源</p>
+        </div>
+    </footer>
+</body>
+</html>
