@@ -255,7 +255,9 @@
         /* 头像卡 */
         .avatar-card {
             position: relative;
-            /* honor the natural 256x256 source — no aspect ratio forcing */
+            /* a portrait card: a touch taller than wide, but bound by the
+               natural image dimensions so we never leak background */
+            aspect-ratio: 4 / 5;
             background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
             border-radius: var(--radius-lg);
             overflow: hidden;
@@ -263,16 +265,14 @@
         }
         .avatar-card__img {
             display: block;
+            position: absolute;
+            inset: 0;
             width: 100%;
-            height: auto;
-            margin: 0 auto;
-            object-fit: contain;
-            object-position: center;
-        }
-        /* on desktop the avatar fills its grid track; on phones cap at 360 so
-           the card doesn't balloon to 500+px wide */
-        @media (min-width: 861px) {
-            .avatar-card { max-width: 480px; }
+            height: 100%;
+            object-fit: cover;
+            object-position: center 18%;
+            /* lift the image up so the head & shoulders sit comfortably in
+               the upper third instead of getting cropped at the chin */
         }
         .avatar-card__badge {
             position: absolute;
