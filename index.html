@@ -328,8 +328,14 @@
             color: var(--primary-700);
             display: grid;
             place-items: center;
-            font-size: 22px;
             margin-bottom: 16px;
+        }
+        .about-card__icon svg {
+            width: 22px; height: 22px;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
         }
         .about-card__title {
             font-weight: 700;
@@ -369,9 +375,16 @@
             aspect-ratio: 16 / 10;
             display: grid;
             place-items: center;
-            font-size: 56px;
             color: rgba(255,255,255,.95);
             overflow: hidden;
+        }
+        .project-card__cover svg {
+            width: 56px; height: 56px;
+            stroke-width: 1.75;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            z-index: 1;
         }
         .project-card__cover::after {
             content: '';
@@ -452,9 +465,15 @@
             line-height: 1.5;
         }
         .qr-box__icon {
-            font-size: 32px;
             margin-bottom: 8px;
             opacity: .5;
+        }
+        .qr-box__icon svg {
+            width: 32px; height: 32px;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
         }
         .qr-hint {
             font-size: 13px;
@@ -584,22 +603,30 @@
             </div>
             <div class="about-grid">
                 <div class="about-card">
-                    <div class="about-card__icon">💼</div>
+                    <div class="about-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg>
+                    </div>
                     <h3 class="about-card__title">工作</h3>
                     <p class="about-card__text">操作系统适配测试工程师，专注硬件/驱动/软件兼容性测试工作。热爱技术，关注互联网发展趋势。</p>
                 </div>
                 <div class="about-card">
-                    <div class="about-card__icon">🌈</div>
+                    <div class="about-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+                    </div>
                     <h3 class="about-card__title">生活</h3>
                     <p class="about-card__text">业余时间研究各种轻创业项目，喜欢尝试新鲜事物，相信执行比点子更重要。</p>
                 </div>
                 <div class="about-card">
-                    <div class="about-card__icon">🎯</div>
+                    <div class="about-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                    </div>
                     <h3 class="about-card__title">目标</h3>
                     <p class="about-card__text">寻找并实践网上最新可执行的轻创业项目，实现副业收入多元化。</p>
                 </div>
                 <div class="about-card">
-                    <div class="about-card__icon">📍</div>
+                    <div class="about-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
                     <h3 class="about-card__title">位置</h3>
                     <p class="about-card__text">长沙岳麓区，欢迎交流互联网创业心得。</p>
                 </div>
@@ -619,7 +646,9 @@
             </div>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-card__cover" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">📦</div>
+                    <div class="project-card__cover" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7"/><path d="m7.5 4.27 9 5.15"/></svg>
+                    </div>
                     <div class="project-card__body">
                         <span class="project-card__tag">快递代下</span>
                         <h3 class="project-card__title">寄快递项目</h3>
@@ -627,7 +656,9 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-card__cover" style="background: linear-gradient(135deg, #10b981, #059669);">👕</div>
+                    <div class="project-card__cover" style="background: linear-gradient(135deg, #10b981, #059669);">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v6c0 1.1.9 2 2 2h1V20a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-1.51c.6-.16 1.18-.43 1.69-.78l1.41 1.41a1 1 0 0 0 1.42 0l2.62-2.62a1 1 0 0 0 0-1.42l-1.41-1.41c.35-.51.62-1.09.78-1.69H22a2 2 0 0 0 2-2V8.42a1 1 0 0 0-.99-.84l-.34-.84a2 2 0 0 1-2.29-3.28z"/></svg>
+                    </div>
                     <div class="project-card__body">
                         <span class="project-card__tag">环保回收</span>
                         <h3 class="project-card__title">旧衣回收项目</h3>
@@ -635,7 +666,9 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-card__cover" style="background: linear-gradient(135deg, #ef4444, #dc2626);">🧧</div>
+                    <div class="project-card__cover" style="background: linear-gradient(135deg, #ef4444, #dc2626);">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/></svg>
+                    </div>
                     <div class="project-card__body">
                         <span class="project-card__tag">创意定制</span>
                         <h3 class="project-card__title">红包封面项目</h3>
@@ -643,7 +676,9 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-card__cover" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">📚</div>
+                    <div class="project-card__cover" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                    </div>
                     <div class="project-card__body">
                         <span class="project-card__tag">驾照服务</span>
                         <h3 class="project-card__title">学法减分项目</h3>
@@ -663,7 +698,9 @@
                 <div class="qr-frame">
                     <div class="qr-box" aria-label="公众号二维码占位">
                         <div>
-                            <div class="qr-box__icon">📱</div>
+                            <div class="qr-box__icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+                            </div>
                             二维码<br>预留位置
                         </div>
                     </div>
