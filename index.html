@@ -159,6 +159,9 @@
             gap: clamp(40px, 6vw, 80px);
             align-items: center;
         }
+        .hero__grid > .avatar-card {
+            justify-self: end;
+        }
         .hero__eyebrow {
             display: inline-flex;
             align-items: center;
@@ -255,10 +258,11 @@
         /* 头像卡 */
         .avatar-card {
             position: relative;
-            /* a portrait card: a touch taller than wide, but bound by the
-               natural image dimensions so we never leak background */
-            aspect-ratio: 4 / 5;
-            background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
+            /* the avatar PNG is 1:1, so the frame is 1:1 — nothing to crop,
+               nothing to leak, no white edge */
+            aspect-ratio: 1 / 1;
+            max-width: 360px;
+            background: #fafafa;
             border-radius: var(--radius-lg);
             overflow: hidden;
             box-shadow: var(--shadow-3);
@@ -270,9 +274,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 18%;
-            /* lift the image up so the head & shoulders sit comfortably in
-               the upper third instead of getting cropped at the chin */
+            object-position: center center;
         }
         .avatar-card__badge {
             position: absolute;
@@ -547,7 +549,7 @@
     <header class="topbar">
         <div class="container topbar__inner">
             <a href="#" class="brand">
-                <span class="brand__mark"><img src="avatar.webp" alt="鹏飞" width="28" height="28"></span>
+                <span class="brand__mark"><img src="avatar.png" alt="鹏飞" width="28" height="28"></span>
                 <span>鹏飞</span>
             </a>
             <nav class="nav">
@@ -594,7 +596,7 @@
 
                 <!-- 头像卡 -->
                 <div class="avatar-card" aria-label="鹏飞头像">
-                    <img class="avatar-card__img" src="avatar.webp" alt="鹏飞" width="256" height="256">
+                    <img class="avatar-card__img" src="avatar.png" alt="鹏飞" width="256" height="256">
                     <span class="avatar-card__badge">长沙 · 岳麓区</span>
                 </div>
             </div>
